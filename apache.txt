@@ -1,0 +1,29 @@
+###### Compresssion ######
+
+<FilesMatch "\.(css|php|js|jpg|png|gif|svg|html)$">
+SetOutputFilter DEFLATE
+</FilesMatch>
+
+<FilesMatch "\.(ttf|otf|woff)$">
+	<IfModule mod_headers.c>
+	    Header set Access-Control-Allow-Origin "*"
+	</IfModule>
+</FilesMatch>
+
+
+###### Caching ######
+Header set Cache-Control "max-age=2419200, public"
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 10 days"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType text/plain "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType application/x-icon "access plus 1 year"
+</IfModule>
