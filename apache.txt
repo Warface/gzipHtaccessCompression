@@ -12,12 +12,11 @@
 </FilesMatch>
 
 
-###### Caching ######
-Header set Cache-Control "max-age=2419200, public"
-
+###### Leverage browser caching ######
+#Header set Cache-Control "max-age=2419200, public" ## Removed. It messed up when site uses login ##
 <IfModule mod_expires.c>
     ExpiresActive On
-    ExpiresDefault "access plus 10 days"
+    #ExpiresDefault "access plus 10 days" ## Removed. It messed up when site uses login ##
     ExpiresByType text/css "access plus 1 week"
     ExpiresByType text/plain "access plus 1 month"
     ExpiresByType image/gif "access plus 1 month"
