@@ -1,9 +1,10 @@
 ###### Compresssion ######
 
 <FilesMatch "\.(css|php|js|jpg|png|gif|svg|html)$">
-SetOutputFilter DEFLATE
+    SetOutputFilter DEFLATE
 </FilesMatch>
 
+###### Cross-browser origins fix for external fonts ######
 <FilesMatch "\.(ttf|otf|woff)$">
 	<IfModule mod_headers.c>
 	    Header set Access-Control-Allow-Origin "*"
